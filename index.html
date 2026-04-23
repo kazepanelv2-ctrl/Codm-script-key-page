@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAZE SECURE KEY SYSTEM</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --neon-blue: #00d2ff;
+    --neon-pink: #f40ad1;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🔥 ANIMATED BACKGROUND */
+body {
+    background: #050a10;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background-image:
+        linear-gradient(rgba(0,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,0,255,0.06) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+    animation: moveGrid 10s linear infinite;
+}
+
+@keyframes moveGrid {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 40px 40px, -40px 40px; }
+}
+
+/* glow */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(0,210,255,0.15), transparent 70%);
+    animation: glowMove 8s linear infinite;
+    z-index: 0;
+}
+
+@keyframes glowMove {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* PANEL */
+.extra-panel {
+    width: 90%;
+    max-width: 380px;
+    margin: 20px auto;
+    padding: 3px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.extra-panel::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(red, orange, yellow, lime, cyan, blue, violet, red);
+    animation: spinPanel 3s linear infinite;
+}
+
+@keyframes spinPanel {
+    to { transform: rotate(360deg); }
+}
+
+.extra-content {
+    background: #050a10;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* MAIN BOX */
+.hud-container {
+    width: 90%;
+    max-width: 380px;
+    padding: 25px 15px;
+    background: rgba(10,15,25,0.9);
+    border: 2px solid var(--neon-blue);
+    text-align: center;
+    border-radius: 12px;
+    z-index: 2;
+    backdrop-filter: blur(6px);
+}
+
+/* TITLE */
+h2 {
+    font-family: 'Orbitron';
+    font-size: 26px;
+    letter-spacing: 4px;
+}
+
+/* KEY BOX */
+.key-box-wrapper {
+    position: relative;
+    padding: 2px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.key-box-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(var(--neon-blue), var(--neon-pink));
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#key-display {
+    background: #050a10;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+#key {
+    font-family: 'Orbitron';
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* TIMER */
+#timer {
+    color: var(--neon-pink);
+    margin-top: 5px;
+}
+
+/* BUTTON */
+.cyber-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    font-family: 'Orbitron';
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    background: transparent;
+    cursor: pointer;
+}
+
+.tg-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid var(--neon-pink);
+    color: var(--neon-pink);
+    text-decoration: none;
+}
+
+#info {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="extra-panel">
+    <div class="extra-content">
+        <h3>FREE KEY ACCESS • 12H SESSION</h3>
+        <p>Use responsibly</p>
+    </div>
+</div>
+
+<div class="hud-container">
+
+    <h2>KAZE</h2>
+    <div>SECURE KEY SYSTEM</div>
+
+    <div class="key-box-wrapper">
+        <div id="key-display">
+            <div id="key">INITIALIZING...</div>
+        </div>
+    </div>
+
+    <div id="timer">SYNCING...</div>
+
+    <button class="cyber-btn" onclick="copyKey()">COPY KEY</button>
+
+    <a href="#" class="tg-btn">JOIN TELEGRAM</a>
+
+    <div id="info">ENCRYPTED SESSION ACTIVE</div>
+
+</div>
+
+<script>
+/* ORIGINAL LOGIC (UNCHANGED) */
+let params = new URLSearchParams(window.location.search);
+let pass = params.get("pass");
+let step = params.get("step");
+
+if(pass !== "1" || step !== "gplinks"){
+    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+}
+
+if(performance.navigation.type === 1){
+    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+}
+
+let ref = document.referrer.toLowerCase();
+if(!ref.includes("https://kazehayamodz-main-page-pgp5.onrender.com") && !ref.includes("gplinks")){
+    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+}
+
+async function loadKey() {
+    try {
+        document.getElementById("key").innerText = "GENERATING...";
+        
+        let tokenRes = await fetch("https://codm-script-k6by.onrender.com/token", {cache: "no-store"});
+        let tokenData = await tokenRes.json();
+
+        if (tokenData.status === "cooldown") {
+            document.getElementById("key").innerText = "LIMIT_REACHED";
+            document.getElementById("timer").innerText = "PLEASE WAIT";
+            return;
+        }
+
+        let keyRes = await fetch(`https://codm-script-k6by.onrender.com/getkey?token=${tokenData.token}`, {cache: "no-store"});
+        let data = await keyRes.json();
+
+        if (data.status === "success") {
+            document.getElementById("key").innerText = data.key;
+            startRedirectTimer();
+        } else {
+            document.getElementById("key").innerText = "ACCESS_DENIED";
+        }
+    } catch (e) {
+        document.getElementById("key").innerText = "SERVER_OFFLINE";
+    }
+}
+
+function startRedirectTimer(){
+    let seconds = 20;
+    let timer = document.getElementById("timer");
+    let interval = setInterval(() => {
+        seconds--;
+        timer.innerText = `REDIRECTING IN ${seconds}s`;
+        if(seconds <= 0){
+            clearInterval(interval);
+            location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+        }
+    }, 1000);
+}
+
+function copyKey(){
+    let key = document.getElementById("key").innerText;
+    navigator.clipboard.writeText(key);
+    alert("KEY COPIED!");
+    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+}
+
+history.pushState(null, null, location.href);
+window.onpopstate = function(){
+    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+};
+
+window.onload = loadKey;
+</script>
+
+</body>
+</html>
