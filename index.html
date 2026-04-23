@@ -221,23 +221,23 @@ let pass = params.get("pass");
 let step = params.get("step");
 
 if(pass !== "1" || step !== "gplinks"){
-    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+    location.replace("https://kazehayamodz-main-page-fe6o.onrender.com");
 }
 
 if(performance.navigation.type === 1){
-    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+    location.replace("https://kazehayamodz-main-page-fe6o.onrender.com");
 }
 
 let ref = document.referrer.toLowerCase();
-if(!ref.includes("https://kazehayamodz-main-page-pgp5.onrender.com") && !ref.includes("gplinks")){
-    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+if(!ref.includes("https://kazehayamodz-main-page-fe6o.onrender.com") && !ref.includes("gplinks")){
+    location.replace("https://kazehayamodz-main-page-fe6o.onrender.com");
 }
 
 async function loadKey() {
     try {
         document.getElementById("key").innerText = "GENERATING...";
         
-        let tokenRes = await fetch("https://codm-script-k6by.onrender.com/token", {cache: "no-store"});
+        let tokenRes = await fetch("https://codm-script-30a6.onrender.com/token", {cache: "no-store"});
         let tokenData = await tokenRes.json();
 
         if (tokenData.status === "cooldown") {
@@ -246,7 +246,7 @@ async function loadKey() {
             return;
         }
 
-        let keyRes = await fetch(`https://codm-script-k6by.onrender.com/getkey?token=${tokenData.token}`, {cache: "no-store"});
+        let keyRes = await fetch(`https://codm-script-30a6.onrender.com/getkey?token=${tokenData.token}`, {cache: "no-store"});
         let data = await keyRes.json();
 
         if (data.status === "success") {
@@ -268,7 +268,7 @@ function startRedirectTimer(){
         timer.innerText = `REDIRECTING IN ${seconds}s`;
         if(seconds <= 0){
             clearInterval(interval);
-            location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+            location.replace("https://kazehayamodz-main-page-fe6o.onrender.com");
         }
     }, 1000);
 }
@@ -277,12 +277,12 @@ function copyKey(){
     let key = document.getElementById("key").innerText;
     navigator.clipboard.writeText(key);
     alert("KEY COPIED!");
-    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+    location.replace("https://kazehayamodz-main-page-fe6o.onrender.com");
 }
 
 history.pushState(null, null, location.href);
 window.onpopstate = function(){
-    location.replace("https://kazehayamodz-main-page-pgp5.onrender.com");
+    location.replace("https://kazehayamodz-main-page-fe6o.onrender.com");
 };
 
 window.onload = loadKey;
